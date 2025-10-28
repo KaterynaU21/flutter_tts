@@ -386,12 +386,10 @@ public class FlutterTtsPlugin: NSObject, FlutterPlugin, AVSpeechSynthesizerDeleg
 extension AVSpeechSynthesisVoiceQuality {
     var stringValue: String {
         switch self {
-        case .default:
-            return "default"
-        case .premium:
-            return "premium"
-        case .enhanced:
-            return "enhanced"
+        case .default: return "default"
+        case .enhanced: return "enhanced"
+        case .premium: return "premium"
+        @unknown default: fatalError("Unexpected AVSpeechSynthesisVoiceQuality value")
         }
     }
 }
@@ -400,12 +398,10 @@ extension AVSpeechSynthesisVoiceQuality {
 extension AVSpeechSynthesisVoiceGender {
     var stringValue: String {
         switch self {
-        case .male:
-            return "male"
-        case .female:
-            return "female"
-        case .unspecified:
-            return "unspecified"
+        case .unspecified: return "unspecified"
+        case .male: return "male"
+        case .female: return "female"
+        @unknown default: fatalError("Unexpected AVSpeechSynthesisVoiceGender value")
         }
     }
 }
